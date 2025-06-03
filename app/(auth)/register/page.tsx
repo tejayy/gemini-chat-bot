@@ -1,14 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useActionState, useEffect, useState } from "react";
-import { toast } from "sonner";
+import {useRouter} from "next/navigation";
+import {useActionState, useEffect, useState} from "react";
+import {toast} from "sonner";
 
-import { AuthForm } from "@/components/custom/auth-form";
-import { SubmitButton } from "@/components/custom/submit-button";
+import {register, RegisterActionState} from "@/actions/auth/register";
+import {AuthForm} from "@/components/custom/auth-form";
+import {SubmitButton} from "@/components/custom/submit-button";
 
-import { register, RegisterActionState } from "../actions";
+// import { register, RegisterActionState } from "../actions";
 
 export default function Page() {
   const router = useRouter();
@@ -18,7 +19,7 @@ export default function Page() {
     register,
     {
       status: "idle",
-    },
+    }
   );
 
   useEffect(() => {
@@ -54,8 +55,7 @@ export default function Page() {
             {"Already have an account? "}
             <Link
               href="/login"
-              className="font-semibold text-gray-800 hover:underline dark:text-zinc-200"
-            >
+              className="font-semibold text-gray-800 hover:underline dark:text-zinc-200">
               Sign in
             </Link>
             {" instead."}
